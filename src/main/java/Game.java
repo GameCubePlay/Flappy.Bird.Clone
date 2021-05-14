@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 
 public class Game {
@@ -42,9 +43,20 @@ public class Game {
     }
 
     private void render(float interpolation){
-        for(Renderable r : renderables){
-            r.render(g2d, interpolation);
+        BufferStrategy b = game.getBufferStrategy();
+        if(b == null){
+            game.createBufferStrategy(2);
+            return;
         }
+
+        Graphics2D g = (Graphics2D) b.getDrawGraphics();
+        g.clearRect(0,0,game.getWidth(), game.getWidth());
+
+        for(Renderable r : renderables){
+            r.render(g, interpolation);
+        }
+        g.dispose();
+        b.show();
     }
 
 }
