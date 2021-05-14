@@ -32,7 +32,8 @@ public class Game {
 
         boolean running = true;
         while (running){
-
+            update();
+            render(1.0f);
         }
     }
 
@@ -57,6 +58,19 @@ public class Game {
         }
         g.dispose();
         b.show();
+    }
+
+    public static void main(String[] args){
+        Game g = new Game();
+        g.renderables.add(new Renderable() {
+            @Override
+            public void render(Graphics2D g, float interpolation) {
+                g.setColor(Color.RED);
+                g.drawRect(300, 250, 50, 100);
+            }
+        });
+
+        g.Start();
     }
 
 }
