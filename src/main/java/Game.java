@@ -46,10 +46,25 @@ public class Game {
 
         input = new Input();
 
+        final int TICK_PER_SECOND = 60;
+        final int TIME_PER_TICK = 1000 / TICK_PER_SECOND;
+        final int MAX_FRAMESKIPS = 5;
+
+        long nextGameTick = System.currentTimeMillis();
+        int loops;
+        float interpolation;
+
+        long timeAtLastFPSCheck = 0;
+        int ticks = 0;
+
+
         boolean running = true;
         while (running){
-            update();
-            render(1.0f);
+            // Updating
+
+            // Rendering
+
+            // FPS Check
         }
     }
 
