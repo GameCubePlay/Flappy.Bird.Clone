@@ -11,6 +11,22 @@ public class Game {
     private ArrayList<Updatable> updatables = new ArrayList<>();
     private ArrayList<Renderable> renderables = new ArrayList<>();
 
+    public void addUpdatable(Updatable u){
+        updatables.add(u);
+    }
+
+    public void removeUpdatable(Updatable u){
+        updatables.remove(u);
+    }
+
+    public void addRenderable(Renderable r){
+        renderables.add(r);
+    }
+
+    public void removeRenderable(Renderable r){
+        renderables.remove(r);
+    }
+
     private Canvas game = new Canvas();
     public void Start(){
         Dimension gameSize = new Dimension(Game.WIDTH, Game.HEIGHT);
