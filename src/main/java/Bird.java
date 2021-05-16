@@ -2,14 +2,25 @@ import java.awt.*;
 
 public class Bird implements Updatable, Renderable{
 
+    private float x, y;
+    private float yVel;
+    private float baseYVel = -6.0f;
+    private float gravity = 0.25f;
+
+    public void resetBird(){
+        x = 100;
+        y = 200;
+        yVel = baseYVel;
+    }
+
+
     @Override
     public void render(Graphics2D g, float interpolation) {
-        throw new UnsupportedOperationException("Not supported yet.");
+
     }
 
     @Override
     public void update(Input input) {
-        throw new UnsupportedOperationException("Not supported yet.");
 
     }
 }
