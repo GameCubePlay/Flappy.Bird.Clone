@@ -82,7 +82,6 @@ public class Game {
                 ticks = 0;
                 timeAtLastFPSCheck = System.currentTimeMillis();
             }
-
         }
     }
 
@@ -121,5 +120,4 @@ public class Game {
 
         g.Start();
     }
-
 }
