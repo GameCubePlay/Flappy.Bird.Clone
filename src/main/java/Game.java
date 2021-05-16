@@ -82,7 +82,6 @@ public class Game {
                 ticks = 0;
                 timeAtLastFPSCheck = System.currentTimeMillis();
             }
-
         }
     }
 
