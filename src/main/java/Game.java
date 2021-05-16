@@ -61,10 +61,28 @@ public class Game {
         boolean running = true;
         while (running){
             // Updating
+            loops = 0;
+            while(System.currentTimeMillis() > nextGameTick && loops < MAX_FRAMESKIPS){
+                update();
+                ticks++;
+
+                nextGameTick += TIME_PER_TICK;
+                loops++;
+            }
 
             // Rendering
-
+            interpolation = (float) (System.currentTimeMillis() + TIME_PER_TICK - nextGameTick)
+                / (float) TIME_PER_TICK;
+            render(interpolation);
             // FPS Check
+
+            if(System.currentTimeMillis() - timeAtLastFPSCheck >= 1000){
+                System.out.println("FPS: " + ticks);
+                gameWindow.setTitle(gameName + " - FPS: " + ticks);
+                ticks = 0;
+                timeAtLastFPSCheck = System.currentTimeMillis();
+            }
+
         }
     }
 
