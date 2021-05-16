@@ -13,7 +13,6 @@ public class Bird implements Updatable, Renderable{
         yVel = baseYVel;
     }
 
-
     @Override
     public void render(Graphics2D g, float interpolation) {
 
