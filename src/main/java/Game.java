@@ -45,6 +45,7 @@ public class Game {
         gameWindow.setLocationRelativeTo(null);
 
         input = new Input();
+        game.addKeyListener(input);
 
         final int TICK_PER_SECOND = 60;
         final int TIME_PER_TICK = 1000 / TICK_PER_SECOND;

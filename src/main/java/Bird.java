@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Bird implements Updatable, Renderable{
 
@@ -20,6 +21,14 @@ public class Bird implements Updatable, Renderable{
         resetBird();
 
         this.pipes = pipes;
+
+        try{
+            flapUp = Sprite.getSprite("bird_up.png");
+            flapDown = Sprite.getSprite("bird_down.png");
+        } catch (IOException ex){
+            System.out.println(ex.getMessage());
+            System.exit(1);
+        }
     }
 
     public void resetBird(){
@@ -39,6 +48,18 @@ public class Bird implements Updatable, Renderable{
 
     @Override
     public void update(Input input) {
+        y += yVel;
+        yVel += gravity;
+
+        if(y < 0){
+            y = 0;
+            yVel = 0;
+        }
+
+        if(input.isSpacePressed()){
+            flap();
+        }
+
 
     }
 }
