@@ -78,7 +78,18 @@ public class Pipes implements Updatable, Renderable{
     }
 
     @Override
-    public void render(Graphics2D g, float interpolation) {}
+    public void render(Graphics2D g, float interpolation) {
+        g.setColor(Color.RED);
+
+        g.fillRect((int) (x1 + (xVel * interpolation)), 0, pipeWidth, (int) y1);
+        g.fillRect((int) (x1 + (xVel * interpolation)), (int)(y1 + pipeVerticalSpacing), pipeWidth, Game.HEIGHT);
+
+        g.fillRect((int) (x1 + (xVel * interpolation)), 0, pipeWidth, (int) y1);
+        g.fillRect((int) (x1 + (xVel * interpolation)), (int)(y1 + pipeVerticalSpacing), pipeWidth, Game.HEIGHT);
+
+        g.fillRect((int) (x1 + (xVel * interpolation)), 0, pipeWidth, (int) y1);
+        g.fillRect((int) (x1 + (xVel * interpolation)), (int)(y1 + pipeVerticalSpacing), pipeWidth, Game.HEIGHT);
+    }
         public float[] getCurrentPipe(){
             return pipeCoords[currentPipe];
         }
