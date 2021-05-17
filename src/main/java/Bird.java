@@ -64,7 +64,9 @@ public class Bird implements Updatable, Renderable{
         float pipeX = pipeCoordinates[0];
         float pipeY = pipeCoordinates[1];
 
-        if((x >= pipeX && x <= pipeX + pipes.getPipeWidth())){
+        if((x >= pipeX && x <= pipeX + pipes.getPipeWidth()
+                && (y <= pipeY || y >= pipeY + pipes.getPipeVerticalSpacing()))
+                || y >= Game.HEIGHT){
             pipes.resetPipes();
             resetBird();
             score = 0;
