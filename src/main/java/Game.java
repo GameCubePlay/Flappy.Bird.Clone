@@ -45,6 +45,7 @@ public class Game {
         gameWindow.setLocationRelativeTo(null);
 
         input = new Input();
+        game.addKeyListener(input);
 
         final int TICK_PER_SECOND = 60;
         final int TIME_PER_TICK = 1000 / TICK_PER_SECOND;
@@ -110,14 +111,21 @@ public class Game {
 
     public static void main(String[] args){
         Game g = new Game();
+        Pipes p = new Pipes();
+        Bird b = new Bird(p);
+
         g.renderables.add(new Renderable() {
             @Override
             public void render(Graphics2D g, float interpolation) {
-                g.setColor(Color.RED);
-                g.drawRect(300, 250, 50, 100);
+
             }
         });
 
+        g.addRenderable(p);
+        g.addUpdatable(p);
+
+        g.addRenderable(b);
+        g.addUpdatable(b);
         g.Start();
     }
 }
