@@ -43,6 +43,11 @@ public class Bird implements Updatable, Renderable{
 
     @Override
     public void render(Graphics2D g, float interpolation) {
+        g.setColor(Color.BLUE);
+        g.drawImage(yVel <= 0 ? flapUp : flapDown, (int) x, (int)(y + (yVel * interpolation)), null);
+
+        g.setFont(gameFont);
+        g.drawString("Score: " + score, 20, 50);
 
     }
 
