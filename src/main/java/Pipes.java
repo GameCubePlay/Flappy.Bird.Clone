@@ -22,7 +22,19 @@ public class Pipes implements Updatable, Renderable{
     }
 
     public void resetPipes(){
-        //TODO
+        currentPipe = 0;
+        x1 = Game.WIDTH * 2;
+        x2 = x1 + pipeWidth + pipeHorizontalSpacing;
+        x3 = x2 + pipeWidth + pipeHorizontalSpacing;
+
+        y1 = getRandomY();
+        y2 = getRandomY();
+        y3 = getRandomY();
+    }
+
+    private int getRandomY(){
+        return rand.nextInt((int)(Game.HEIGHT * 0.4f)) + (Game.HEIGHT / 10);
+
     }
 
 
