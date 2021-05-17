@@ -110,6 +110,8 @@ public class Game {
 
     public static void main(String[] args){
         Game g = new Game();
+        Pipes p = new Pipes();
+
         g.renderables.add(new Renderable() {
             @Override
             public void render(Graphics2D g, float interpolation) {
@@ -118,6 +120,8 @@ public class Game {
             }
         });
 
+        g.addRenderable(p);
+        g.addUpdatable(p);
         g.Start();
     }
 }
