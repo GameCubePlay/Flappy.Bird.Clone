@@ -39,11 +39,6 @@ public class Pipes implements Updatable, Renderable{
 
 
     @Override
-    public void render(Graphics2D g, float interpolation) {
-
-    }
-
-    @Override
     public void update(Input input) {
         x1 += xVel;
         x2 += xVel;
@@ -81,4 +76,26 @@ public class Pipes implements Updatable, Renderable{
                 break;
         }
     }
+
+    @Override
+    public void render(Graphics2D g, float interpolation) {}
+        public float[] getCurrentPipe(){
+            return pipeCoords[currentPipe];
+        }
+
+        public int getCurrentPipeID() {
+            return currentPipe;
+        }
+
+        public int getPipeWidth() {
+            return pipeWidth;
+        }
+
+        public int getPipeHorizontalSpacing(){
+            return pipeHorizontalSpacing;
+        }
+
+        public int getPipeVerticalSpacing() {
+            return pipeVerticalSpacing;
+        }
 }
