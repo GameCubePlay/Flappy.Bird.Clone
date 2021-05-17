@@ -60,6 +60,19 @@ public class Bird implements Updatable, Renderable{
             flap();
         }
 
+        float[] pipeCoordinates = pipes.getCurrentPipe();
+        float pipeX = pipeCoordinates[0];
+        float pipeY = pipeCoordinates[1];
+
+        if((x >= pipeX && x <= pipeX + pipes.getPipeWidth())){
+            pipes.resetPipes();
+            resetBird();
+            score = 0;
+        } else{
+            int currentPipeID = pipes.getCurrentPipeID();
+            score = (scoredPipe != currentPipeID) ? score + 1 : score;
+            scoredPipe = currentPipeID;
+        }
 
     }
 }

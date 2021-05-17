@@ -6,7 +6,7 @@ public class Input implements KeyListener {
     private boolean spacePressed = false;
     private boolean spaceReleased = true;
 
-    private boolean isSpacePressed() {
+    boolean isSpacePressed() {
         boolean s = spacePressed;
         spacePressed = false;
         return s;
